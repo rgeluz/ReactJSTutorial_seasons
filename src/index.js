@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import SeasonDisplay from './SeasonDisplay';
 
 // functional based component
 /*
@@ -18,21 +19,14 @@ class App extends React.Component {
   
   constructor(props){           //Good place to do one time setup
     super(props);
-
      // THIS IS THE ONLY TIME we do direct assignment to this.state 
     this.state = { lat: null, errorMessage: '' };
-
-    
   }
-
-
 
 
   //Component Lifecycle Methods
   componentDidMount() {         //Good place to do data loading!
     console.log('My component was rendered to the screen');
-
-    
     //get user's current location
     /*
     window.navigator.geolocation.getCurrentPosition(
@@ -58,9 +52,8 @@ class App extends React.Component {
     //get user's current location
     window.navigator.geolocation.getCurrentPosition(
       position =>  this.setState({ lat: position.coords.latitude }),
-       err=> this.setState({ errorMessage: err.message })
+      err=> this.setState({ errorMessage: err.message })
     );
-
   }
   
   componentDidUpdate(){         //Good place to do more data loading when state/props change
@@ -77,7 +70,9 @@ class App extends React.Component {
     }
 
     if (!this.state.errorMessage && this.state.lat) {
-      return <div>Latitude: {this.state.lat}</div>
+      //return <div>Latitude: {this.state.lat}</div>
+      return <SeasonDisplay lat={this.state.lat} />
+
     }
 
     return <div>Loading!</div>
@@ -89,7 +84,6 @@ class App extends React.Component {
       Error: {this.state.errorMessage}
       </div>
     ); */
-
 
   }
 }
