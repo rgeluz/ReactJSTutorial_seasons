@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 // functional based component
 /*
@@ -75,7 +76,8 @@ class App extends React.Component {
 
     }
 
-    return <div>Loading!</div>
+    //return <div>Loading!</div>
+    return <Spinner />;
 
     /*  //original, see conditional rendering above
     return (<div>
