@@ -20,6 +20,7 @@ const getSeason = (lat, month) => {
   }
 }
 
+//functional component
 const SeasonDisplay = (props) => {
   //console.log(props.lat);
   const season = getSeason(props.lat, new Date().getMonth());
